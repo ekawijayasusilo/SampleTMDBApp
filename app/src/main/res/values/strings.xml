@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Sample TMDB</string>
+    <string name="title_movies">TMDB Movie</string>
+    <string name="title_movie_detail">Movie Detail</string>
+    <string name="title_book_movie">Book Movie</string>
+    <string name="loading_movies">Loading awesome movies…</string>
+    <string name="error_loading_movies">Failed to load movies. Please try again in a few moment.</string>
+    <string name="loading_next_page">Loading…</string>
+    <string name="movie_overview">Synopsis</string>
+    <string name="movie_genres">Genres</string>
+    <string name="book_movie">Book A Ticket</string>
+</resources>

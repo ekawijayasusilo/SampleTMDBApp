@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/card_view_book_movie"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/image_view_backdrop"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:adjustViewBounds="true"
+                    android:fitsSystemWindows="true"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintBottom_toTopOf="@+id/guideline_backdrop"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:src="@tools:sample/avatars" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline_backdrop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.4" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.3" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline_start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="16dp" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline_end"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_end="16dp" />
+
+                <ImageView
+                    android:id="@+id/image_view_poster"
+                    android:layout_width="0dp"
+                    android:layout_height="200dp"
+                    app:layout_constraintDimensionRatio="w,2:3"
+                    app:layout_constraintStart_toStartOf="@id/guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/guideline_content"
+                    tools:src="@tools:sample/avatars" />
+
+                <TextView
+                    android:id="@+id/text_view_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/image_view_popularity"
+                    app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                    app:layout_constraintStart_toEndOf="@+id/image_view_poster"
+                    app:layout_constraintTop_toBottomOf="@+id/guideline_backdrop"
+                    tools:text="Title Goes Here" />
+
+                <ImageView
+                    android:id="@+id/image_view_popularity"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="12dp"
+                    android:src="@drawable/ic_baseline_trending_up_24"
+                    app:layout_constraintEnd_toStartOf="@+id/image_view_runtime"
+                    app:layout_constraintStart_toEndOf="@+id/image_view_poster"
+                    app:layout_constraintTop_toBottomOf="@+id/text_view_title" />
+
+                <ImageView
+                    android:id="@+id/image_view_runtime"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_baseline_schedule_24"
+                    app:layout_constraintEnd_toStartOf="@+id/image_view_language"
+                    app:layout_constraintStart_toEndOf="@+id/image_view_popularity"
+                    app:layout_constraintTop_toTopOf="@+id/image_view_popularity" />
+
+                <ImageView
+                    android:id="@+id/image_view_language"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_baseline_language_24"
+                    app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                    app:layout_constraintStart_toEndOf="@+id/image_view_runtime"
+                    app:layout_constraintTop_toTopOf="@+id/image_view_popularity" />
+
+                <TextView
+                    android:id="@+id/text_view_popularity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    app:layout_constraintEnd_toEndOf="@+id/image_view_popularity"
+                    app:layout_constraintStart_toStartOf="@+id/image_view_popularity"
+                    app:layout_constraintTop_toBottomOf="@+id/image_view_popularity"
+                    tools:text="0.5" />
+
+                <TextView
+                    android:id="@+id/text_view_runtime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="@+id/image_view_runtime"
+                    app:layout_constraintStart_toStartOf="@+id/image_view_runtime"
+                    app:layout_constraintTop_toTopOf="@+id/text_view_popularity"
+                    tools:text="139 mins" />
+
+                <TextView
+                    android:id="@+id/text_view_language"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="@+id/image_view_language"
+                    app:layout_constraintStart_toStartOf="@+id/image_view_language"
+                    app:layout_constraintTop_toTopOf="@+id/text_view_popularity"
+                    tools:text="EN" />
+
+                <androidx.constraintlayout.widget.Barrier
+                    android:id="@+id/barrier"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:barrierDirection="bottom"
+                    app:constraint_referenced_ids="image_view_poster,text_view_title,image_view_popularity,image_view_runtime,image_view_language,text_view_popularity,text_view_runtime,text_view_language" />
+
+                <TextView
+                    android:id="@+id/text_view_label_overview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/movie_overview"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@id/guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/barrier" />
+
+                <TextView
+                    android:id="@+id/text_view_overview"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:lineSpacingExtra="4dp"
+                    app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                    app:layout_constraintStart_toStartOf="@id/guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/text_view_label_overview"
+                    tools:text="The movie's synopsis goes here. The movie's synopsis goes here. The movie's synopsis goes here. The movie's synopsis goes here. The movie's synopsis goes here. The movie's synopsis goes here." />
+
+                <TextView
+                    android:id="@+id/text_view_label_genres"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/movie_genres"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@id/guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/text_view_overview" />
+
+                <HorizontalScrollView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                    app:layout_constraintStart_toStartOf="@id/guideline_start"
+                    app:layout_constraintTop_toBottomOf="@id/text_view_label_genres">
+
+                    <LinearLayout
+                        android:id="@+id/linear_layout_genres"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal" />
+                </HorizontalScrollView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view_book_movie"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="4dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <Button
+            android:id="@+id/button_book_movie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            android:text="@string/book_movie" />
+
+    </androidx.cardview.widget.CardView>
+
+    <include
+        layout="@layout/sublayout_loading"
+        android:visibility="gone" />
+
+    <include
+        layout="@layout/sublayout_error"
+        android:visibility="gone" />
+</androidx.constraintlayout.widget.ConstraintLayout>
